@@ -2,17 +2,16 @@
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 ## run code - class file
-1. convert to class file
-    ## for server
+1. convert to class file    
     ```
     javac --source-path src -d bin src/* 
     ```    
 
 2. run class file
-    ## for server
     ```
     java -cp bin App Rush2.csv
     ```
+    
 ## Folder Structure
 
 The workspace contains two folders by default, where:
