@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class App {    
-    private static List <String> pokemonDeck;
-    private static Map<Integer, List<String>> pokemonStackMap = new HashMap<>();
+    public static List <String> pokemonDeck;
+    public static Map<Integer, List<String>> pokemonStackMap = new HashMap<>();
     public static void main(String[] args) throws Exception {
         Boolean exit = false;
         String csvFilePath = "";
@@ -24,7 +24,7 @@ public class App {
         }
         //System.out.println(pokemonDeck);
 
-        //load List<String) to Map
+        //load List<String> to Map
         for(int i = 0; i < pokemonDeck.size(); i++){
             pokemonStackMap.put(i + 1, Arrays.asList(pokemonDeck.get(i).split(",")));
         }        
