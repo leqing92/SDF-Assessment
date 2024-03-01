@@ -128,7 +128,7 @@ public class App {
         for (int i = 1; i <= 8; i++){            
             System.out.printf("Set %d\n", i);
             if(!pokemonStackMap.get(i).stream().anyMatch(s -> s.equals(enteredPokemon))){
-                System.out.printf("%s is not found in this set.\n", enteredPokemon);
+                System.out.printf("%s not found in this set.\n", enteredPokemon);
             }else if(pokemonStackMap.get(i).stream().anyMatch(s -> s.equals(enteredPokemon))){                
                 List <String> eachStack = pokemonStackMap.get(i).stream().collect(Collectors.toList());
                 int enteredPokemonIndex = eachStack.indexOf(enteredPokemon);
