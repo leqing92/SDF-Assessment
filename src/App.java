@@ -134,7 +134,7 @@ public class App {
                 int enteredPokemonIndex = eachStack.indexOf(enteredPokemon);
                 int cardsToGo = -1;
                 for(int j = 0; j < eachStack.size(); j++){
-                    if(eachStack.get(j).startsWith("5*")){
+                    if(eachStack.get(j).startsWith("5*") && !eachStack.get(j).equals(enteredPokemon)){
                         cardsToGo = j;
                         break;                        
                     }
