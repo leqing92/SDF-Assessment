@@ -54,17 +54,25 @@ public class FileService {
         }
         //if file exist
         else if (csvFile.exists()){
-            List <String> tempPokemonList = new ArrayList<>();
-            tempPokemonList = this.ReadCSV(fullPathFilename);
-            tempPokemonList.add(pokemons);
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) { 
-                for(String line : tempPokemonList){
-                    bw.write(line);
-                    bw.newLine();                    
-                }
-            }catch (IOException e) {
+            //List <String> tempPokemonList = new ArrayList<>();
+            //tempPokemonList = this.ReadCSV(fullPathFilename);
+            //tempPokemonList.add(pokemons);
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile, true))) {                
+                bw.newLine();
+                bw.write(pokemons);                               
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
+
+            // try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) { 
+            //     for(String line : tempPokemonList){
+            //         bw.write(line);
+            //         bw.newLine();                                        
+            //     }
+            // }catch (IOException e) {
+            //     e.printStackTrace();
+            // }
         }
 
     }

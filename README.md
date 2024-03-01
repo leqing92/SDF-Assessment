@@ -9,9 +9,9 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 
 2. run class file
     ```
-    java -cp bin App Rush2.csv
+    java -cp bin App bin/Rush2.csv
     ```
-    
+
 ## Folder Structure
 
 The workspace contains two folders by default, where:

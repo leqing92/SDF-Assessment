@@ -33,7 +33,7 @@ public class App {
 
         while (!exit){
             printHeader();
-            String input = cons.readLine("Enter you selection > ").trim().toLowerCase();            
+            String input = cons.readLine("Enter you selection >").trim().toLowerCase();            
             switch (input) {
                 case "q":
                     printExitMessage();
@@ -89,7 +89,7 @@ public class App {
     public static void printHeader() {
         System.out.println("Welcome to Pokemon Gaole Legend 4 Rush 2\n");
         //System.out.println("(1) View the list of Pokemon in the selected stack");
-        System.out.println("(1) View unqiue list of Pokemon in the selected stack");
+        System.out.println("(1) View unique list of Pokemon in the selected stack");
         System.out.println("(2) Find next 5 stars Pokemon occurence");
         System.out.println("(3) Create new Pokemon stack and save (append) to csv file");
         System.out.println("(4) Print distinct Pokemon and cards count");
@@ -139,11 +139,11 @@ public class App {
                         break;                        
                     }
                 }
-                if((cardsToGo - enteredPokemonIndex + 1) < 0){
-                    System.out.println("No 5 star Pokemon found subsequently in the stack.");
+                if((cardsToGo - enteredPokemonIndex + 1) <= 0){
+                    System.out.println("No 5 stars Pokemon found subsequently in the stack.");
                 }
                 else{
-                    System.out.printf("%s >>> %d cards to go.\n",eachStack.get(cardsToGo), cardsToGo - enteredPokemonIndex);
+                    System.out.printf("%s >>> %d cards to go.\n", eachStack.get(cardsToGo), cardsToGo - enteredPokemonIndex);
                 }
             }
         }
@@ -153,6 +153,7 @@ public class App {
     // Task 2
     public static void printPokemonCardCount() {
         // Task 2 - your code here
+        //get all card distribution
         Map <String, Integer> pokemonCardCountMap = new HashMap<>();
         for(int i = 0; i < pokemonDeck.size() ; i++){
             List <String> eachCard = Arrays.asList(pokemonDeck.get(i).split(","));
@@ -160,6 +161,7 @@ public class App {
                 pokemonCardCountMap.put(card, pokemonCardCountMap.getOrDefault(card, 0) + 1);
             }
         }
+        //get top10 card 
         //https://stackoverflow.com/questions/109383/sort-a-mapkey-value-by-values
         Map<String, Integer> topTen = pokemonCardCountMap.entrySet().stream()
                                                         .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
@@ -167,7 +169,7 @@ public class App {
                                                         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         int count = 1;
         for(Map.Entry<String, Integer> entry : topTen.entrySet()){            
-            System.out.printf("Pokemon %d : %s, Cards count: %d\n", count, entry.getKey(), entry.getValue());
+            System.out.printf("Pokemon %d : %s, Cards Count: %d\n", count, entry.getKey(), entry.getValue());
             count ++;
         }
     }
